@@ -112,28 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &86569436 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6762937408071138724, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c,
-    type: 3}
-  m_PrefabInstance: {fileID: 996033765984029598}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &86569437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86569436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9ea2bbddca7b4b8bac98eb882fce8fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lizardPrefab: {fileID: 1851516625985293860, guid: 29fbb463759fe48f899053d4255885a9,
-    type: 3}
-  minDelay: 1
-  maxDelay: 5
 --- !u!1 &284665826 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6762937408071138724, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c,
@@ -152,8 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ea2bbddca7b4b8bac98eb882fce8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lizardPrefab: {fileID: 1851516625985293860, guid: 29fbb463759fe48f899053d4255885a9,
-    type: 3}
+  attackerPrefab: {fileID: 0}
   minDelay: 1
   maxDelay: 5
 --- !u!1 &374929080 stripped
@@ -174,8 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ea2bbddca7b4b8bac98eb882fce8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lizardPrefab: {fileID: 1851516625985293860, guid: 29fbb463759fe48f899053d4255885a9,
-    type: 3}
+  attackerPrefab: {fileID: 0}
   minDelay: 1
   maxDelay: 5
 --- !u!1001 &410053535
@@ -475,8 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ea2bbddca7b4b8bac98eb882fce8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lizardPrefab: {fileID: 1851516625985293860, guid: 29fbb463759fe48f899053d4255885a9,
-    type: 3}
+  attackerPrefab: {fileID: 0}
   minDelay: 1
   maxDelay: 5
 --- !u!1001 &1951277688
@@ -566,8 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ea2bbddca7b4b8bac98eb882fce8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lizardPrefab: {fileID: 1851516625985293860, guid: 29fbb463759fe48f899053d4255885a9,
-    type: 3}
+  attackerPrefab: {fileID: 0}
   minDelay: 1
   maxDelay: 5
 --- !u!1001 &996033765984029598

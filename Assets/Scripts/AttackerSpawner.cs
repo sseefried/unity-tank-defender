@@ -6,10 +6,12 @@ public class AttackerSpawner : MonoBehaviour
 {
     bool spawn = true;
 
-    [SerializeField] GameObject lizardPrefab;
+    [SerializeField] Attacker attackerPrefab;
     [SerializeField] float minDelay = 1f;
     [SerializeField] float maxDelay = 5f;
 
+    // If Start is a Coroutine then it automatically has an implicit
+    // StartCoroutine put around it.
     IEnumerator Start()
     {
         while (spawn)
@@ -28,6 +30,6 @@ public class AttackerSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(lizardPrefab, transform.position, Quaternion.identity);
+        Instantiate(attackerPrefab, transform.position, Quaternion.identity);
     }
 }
