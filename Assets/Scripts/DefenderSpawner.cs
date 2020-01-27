@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class DefenderSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject defenderPrefab;
+    Defender defenderPrefab;
 
     private void OnMouseDown()
     {
         SpawnDefender(GetSquareClicked());
     }
 
+    public void SetSelectedDefender(Defender defenderToSelect)
+    {
+        defenderPrefab = defenderToSelect;
+    }
+
     private Vector2 GetSquareClicked()
     {
         Vector2 clickPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(clickPos);
-        return SnapToGrid(worldPos);
+         return SnapToGrid(worldPos);
     }
 
     private Vector2 SnapToGrid(Vector2 rawWorldPos)
@@ -28,6 +33,6 @@ public class DefenderSpawner : MonoBehaviour
 
     private void SpawnDefender(Vector2 worldPos)
     {
-        GameObject newDefender = Instantiate(defenderPrefab, worldPos, Quaternion.identity) as GameObject;
+        Defender newDefender = Instantiate(defenderPrefab, worldPos, Quaternion.identity) as Defender;
     }
 }
