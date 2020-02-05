@@ -17,7 +17,7 @@ public class AttackerSpawner : MonoBehaviour
         while (spawn)
         {
             yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
-            Spawn();
+            SpawnAttacker();
                             
         }
     }
@@ -28,8 +28,13 @@ public class AttackerSpawner : MonoBehaviour
         
     }
 
-    private void Spawn()
+    private void SpawnAttacker()
     {
-        Instantiate(attackerPrefab, transform.position, Quaternion.identity);
+        Attacker newAttacker =
+            Instantiate(attackerPrefab,
+                        transform.position,
+                        transform.rotation) as Attacker;
+
+        newAttacker.transform.parent = transform;  
     }
 }
