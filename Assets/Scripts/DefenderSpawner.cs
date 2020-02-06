@@ -20,8 +20,7 @@ public class DefenderSpawner : MonoBehaviour
     {
         var starDisplay = FindObjectOfType<StarDisplay>();
         int defenderCost = defender.GetStarCost();
-        if (starDisplay.HaveEnoughStars(defenderCost) &&
-            !IsDefenderAt(worldPos))
+        if (starDisplay.HaveEnoughStars(defenderCost))
         {
 
             SpawnDefender(worldPos);
@@ -34,33 +33,17 @@ public class DefenderSpawner : MonoBehaviour
     {
         Vector2 clickPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(clickPos);
-         return SnapToGrid(worldPos);
+        Debug.Log("clickPos = " + clickPos.ToString() + ", worldPos " + worldPos.ToString());
+        return SnapToGrid(worldPos);
     }
 
     private Vector2 SnapToGrid(Vector2 rawWorldPos)
     {
         float newX = Mathf.RoundToInt(rawWorldPos.x);
         float newY = Mathf.RoundToInt(rawWorldPos.y);
+        Debug.Log("Snapped pos = (" + newX.ToString() + "," + newY.ToString() + ")");
         return new Vector2(newX, newY);
 
-    }
-
-    private bool IsDefenderAt(Vector2 worldPos)
-    {
-        Defender[] defenders = FindObjectsOfType<Defender>();
-        foreach (Defender defender in defenders)
-        {
-            if (AtSameCoordinate(defender.transform.position.y, worldPos.y) &&
-                AtSameCoordinate(defender.transform.position.x, worldPos.x)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private bool AtSameCoordinate(float x1, float x2)
-    {
-        return Mathf.Abs(x1 - x2) < Mathf.Epsilon;
     }
 
     private void SpawnDefender(Vector2 worldPos)
