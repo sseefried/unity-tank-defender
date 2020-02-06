@@ -20,7 +20,10 @@ public class DefenderSpawner : MonoBehaviour
     {
         var starDisplay = FindObjectOfType<StarDisplay>();
         int defenderCost = defender.GetStarCost();
-        if (starDisplay.HaveEnoughStars(defenderCost)) {
+        if (starDisplay.HaveEnoughStars(defenderCost) &&
+            !IsDefenderAt(worldPos))
+        {
+
             SpawnDefender(worldPos);
             starDisplay.SpendStars(defenderCost);
         }
@@ -42,8 +45,28 @@ public class DefenderSpawner : MonoBehaviour
 
     }
 
+    private bool IsDefenderAt(Vector2 worldPos)
+    {
+        Defender[] defenders = FindObjectsOfType<Defender>();
+        foreach (Defender defender in defenders)
+        {
+            if (AtSameCoordinate(defender.transform.position.y, worldPos.y) &&
+                AtSameCoordinate(defender.transform.position.x, worldPos.x)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool AtSameCoordinate(float x1, float x2)
+    {
+        return Mathf.Abs(x1 - x2) < Mathf.Epsilon;
+    }
+
     private void SpawnDefender(Vector2 worldPos)
     {
         Defender newDefender = Instantiate(defender, worldPos, Quaternion.identity) as Defender;
+        Canvas canvas = FindObjectOfType<Canvas>();
+        newDefender.transform.parent = canvas.transform;
     }
 }
