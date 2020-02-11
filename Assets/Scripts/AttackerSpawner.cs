@@ -6,7 +6,7 @@ public class AttackerSpawner : MonoBehaviour
 {
     bool spawn = true;
 
-    [SerializeField] Attacker attackerPrefab;
+    [SerializeField] Attacker[] attackerPrefabs;
     [SerializeField] float minDelay = 1f;
     [SerializeField] float maxDelay = 5f;
 
@@ -22,6 +22,11 @@ public class AttackerSpawner : MonoBehaviour
         }
     }
 
+    public void StopSpawning()
+    {
+        spawn = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,11 +35,17 @@ public class AttackerSpawner : MonoBehaviour
 
     private void SpawnAttacker()
     {
+        var attackerIndex = Random.Range(0, attackerPrefabs.Length);
+        Spawn(attackerPrefabs[attackerIndex]);
+    }
+
+    private void Spawn(Attacker attacker)
+    {
         Attacker newAttacker =
-            Instantiate(attackerPrefab,
+            Instantiate(attacker,
                         transform.position,
                         transform.rotation) as Attacker;
 
-        newAttacker.transform.parent = transform;  
+        newAttacker.transform.parent = transform;
     }
 }

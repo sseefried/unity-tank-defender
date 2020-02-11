@@ -33,7 +33,7 @@ public class DefenderSpawner : MonoBehaviour
     {
         Vector2 clickPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(clickPos);
-        Debug.Log("clickPos = " + clickPos.ToString() + ", worldPos " + worldPos.ToString());
+        //Debug.Log("clickPos = " + clickPos.ToString() + ", worldPos " + worldPos.ToString());
         return SnapToGrid(worldPos);
     }
 
@@ -41,7 +41,7 @@ public class DefenderSpawner : MonoBehaviour
     {
         float newX = Mathf.RoundToInt(rawWorldPos.x);
         float newY = Mathf.RoundToInt(rawWorldPos.y);
-        Debug.Log("Snapped pos = (" + newX.ToString() + "," + newY.ToString() + ")");
+        //Debug.Log("Snapped pos = (" + newX.ToString() + "," + newY.ToString() + ")");
         return new Vector2(newX, newY);
 
     }
