@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
+    [Header("Config")]
+    [SerializeField] GameObject winLabel;
+    [SerializeField] GameObject loseLabel;
+    [SerializeField] float timeToWait = 4f;
+
     [Header("Debug only")]
     [SerializeField] int numberOfAttackers = 0;
     [SerializeField] bool levelTimerFinished;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        winLabel.SetActive(false);
+        loseLabel.SetActive(false);
     }
+
 
     public void AttackerSpawned()
     {
@@ -24,7 +30,7 @@ public class LevelController : MonoBehaviour
         numberOfAttackers -= 1;
         if (numberOfAttackers <= 0 && levelTimerFinished)
         {
-            Debug.Log("End Level Now!");
+            StartCoroutine(HandleWinCondition());
         }
     }
 
@@ -34,6 +40,11 @@ public class LevelController : MonoBehaviour
         StopSpawners();
     }
 
+    public void Lose()
+    {
+        StartCoroutine(HandleLoseCondition());
+    }
+
     private void StopSpawners()
     {
         AttackerSpawner[] spawners = FindObjectsOfType<AttackerSpawner>();
@@ -41,5 +52,21 @@ public class LevelController : MonoBehaviour
         {
             spawner.StopSpawning();
         }
+    }
+
+    private IEnumerator HandleWinCondition()
+    {
+        winLabel.SetActive(true);
+        GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(timeToWait);
+        FindObjectOfType<LevelLoader>().LoadNextScene();
+    }
+
+    private IEnumerator HandleLoseCondition()
+    {
+        loseLabel.SetActive(true);
+        Time.timeScale = 0;
+        
+        yield return new WaitForSeconds(timeToWait);
     }
 }
