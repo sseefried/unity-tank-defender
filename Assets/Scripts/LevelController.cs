@@ -40,11 +40,6 @@ public class LevelController : MonoBehaviour
         StopSpawners();
     }
 
-    public void Lose()
-    {
-        StartCoroutine(HandleLoseCondition());
-    }
-
     private void StopSpawners()
     {
         AttackerSpawner[] spawners = FindObjectsOfType<AttackerSpawner>();
@@ -62,11 +57,10 @@ public class LevelController : MonoBehaviour
         FindObjectOfType<LevelLoader>().LoadNextScene();
     }
 
-    private IEnumerator HandleLoseCondition()
+    public void HandleLoseCondition()
     {
         loseLabel.SetActive(true);
         Time.timeScale = 0;
         
-        yield return new WaitForSeconds(timeToWait);
     }
 }

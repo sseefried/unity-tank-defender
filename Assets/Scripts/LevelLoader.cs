@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    [Header("Config")]
     [SerializeField] int timeToWait = 4; // seconds
-    int currentSceneIndex;
+
+    [Header("Debug")]
+    [SerializeField] int currentSceneIndex;
 
     private void Start()
     {
@@ -16,6 +19,19 @@ public class LevelLoader : MonoBehaviour
         {
             StartCoroutine(WaitAndLoad());
         }
+
+    }
+
+    public void RestartScene()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Start Screen");
     }
 
     public void LoadNextScene()

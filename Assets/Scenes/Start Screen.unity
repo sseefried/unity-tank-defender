@@ -112,6 +112,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &85778232
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.9802346
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.732916
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02095534
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308341092835917087, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773721399828036254, guid: c46265e2b916f40399bfc50914c1ad2e,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c46265e2b916f40399bfc50914c1ad2e, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +439,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030112124}
   m_CullTransparentMesh: 0
+--- !u!114 &1162639366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6291321485027512395, guid: c46265e2b916f40399bfc50914c1ad2e,
+    type: 3}
+  m_PrefabInstance: {fileID: 85778232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b480896beec8d42f79d031516da24b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1318999992
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,8 +507,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7e7077514b22f4edc95ed18dcce4c151, type: 3}
     m_FontSize: 100
@@ -489,9 +568,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1318999994}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+      m_Calls:
+      - m_Target: {fileID: 1162639366}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2071585091
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,8 +635,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: dc6eb4a96d123471c90a901f93f9303b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -623,8 +709,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7e7077514b22f4edc95ed18dcce4c151, type: 3}
     m_FontSize: 120
@@ -710,6 +794,15 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2113769431}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+      m_Calls:
+      - m_Target: {fileID: 1162639366}
+        m_MethodName: LoadNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
