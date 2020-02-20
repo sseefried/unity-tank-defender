@@ -167,7 +167,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44056312}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -296,7 +296,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158152833}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -403,23 +403,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 86569437, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c, type: 3}
       propertyPath: attackerPrefabs.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 86569437, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c, type: 3}
       propertyPath: attackerPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 1851516625985293864, guid: 29fbb463759fe48f899053d4255885a9,
-        type: 3}
-    - target: {fileID: 86569437, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c, type: 3}
-      propertyPath: minDelay
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 86569437, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c, type: 3}
-      propertyPath: maxDelay
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 86569437, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c, type: 3}
-      propertyPath: attackerPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 1851516625985293864, guid: 29fbb463759fe48f899053d4255885a9,
         type: 3}
@@ -632,7 +619,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796539971}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -744,11 +731,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spawner (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6762937408071138724, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9152677769927145555, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c,
         type: 3}
@@ -909,7 +891,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340428698}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -989,14 +971,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1851516625985293864, guid: 29fbb463759fe48f899053d4255885a9,
         type: 3}
-    - target: {fileID: 86569437, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c, type: 3}
-      propertyPath: minDelay
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 86569437, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c, type: 3}
-      propertyPath: maxDelay
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6762937408071138724, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c,
         type: 3}
       propertyPath: m_Name
@@ -1167,7 +1141,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787830273}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1400,7 +1374,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824811830}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1467,11 +1441,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spawner (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6762937408071138724, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9152677769927145555, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c,
         type: 3}
@@ -1717,11 +1686,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spawner (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6762937408071138724, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9152677769927145555, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c,
         type: 3}
@@ -2184,11 +2148,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6103849510239778591, guid: 65bdacd7f15de425e93efac20cf76220,
-        type: 3}
-      propertyPath: stars
-      value: 250
-      objectReference: {fileID: 0}
     - target: {fileID: 6103849510385257739, guid: 65bdacd7f15de425e93efac20cf76220,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -2203,11 +2162,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6103849511132224776, guid: 65bdacd7f15de425e93efac20cf76220,
-        type: 3}
-      propertyPath: levelTime
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65bdacd7f15de425e93efac20cf76220, type: 3}

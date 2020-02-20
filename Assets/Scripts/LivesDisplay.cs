@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class LivesDisplay : MonoBehaviour
 {
-    [SerializeField] int lives = 5;
+    [SerializeField] int baseLives = 3;
+    int lives = 5;
     [SerializeField] int damage = 1;
     Text livesText;
 
     // Start is called before the first frame update
     void Start()
     {
+        lives = baseLives - Mathf.RoundToInt(PlayerPrefsController.GetDifficulty());
         livesText = GetComponent<Text>();
         UpdateDisplay();
+        Debug.Log("difficulty setting currently is " + PlayerPrefsController.GetDifficulty());
     }
 
     private void UpdateDisplay()
