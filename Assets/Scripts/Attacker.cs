@@ -5,40 +5,64 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
-    float currentSpeed = 1f;
+    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] GameObject tankFiring;
+    [Range(0f,3f)] [SerializeField] float speed = 1f;
+    [SerializeField] float projectileDelay = 0.5f;
+    [SerializeField] float fireDelayMin = 3f;
+    [SerializeField] float fireDelayMax = 5f;
+
+    float currentSpeed;
+
     GameObject currentTarget;
+
 
     private void Awake()
     {
         FindObjectOfType<LevelController>().AttackerSpawned();
     }
 
+    private void Start()
+    {
+        StartCoroutine(FireContinuously());
+    }
+
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.left * Time.deltaTime * currentSpeed);
-        UpdateAnimationState();
+        //UpdateAnimationState();
     }
 
-    private void UpdateAnimationState()
-    {
-        if (!currentTarget)
-        {
-            GetComponent<Animator>().SetBool("isAttacking", false);
-        }
-    }
+    //private void UpdateAnimationState()
+    //{
+    //    if (!currentTarget)
+    //    {
+    //        GetComponent<Animator>().SetBool("isAttacking", false);
+    //    }
+    //}
 
-    public void SetMovementSpeed(float speed)
+    public void SetMoving()
     {
         currentSpeed = speed;
     }
 
+
+    public void Fire()
+    {
+        if (!tankFiring || !projectilePrefab) { return; }
+        tankFiring.GetComponent<Animator>().SetTrigger("firing");
+        StartCoroutine(WaitAndInstantiateProjectile());
+    }
+
+    // FIXME: Remove
     public void Attack(GameObject target)
     {
         GetComponent<Animator>().SetBool("isAttacking", true);
         currentTarget = target;
     }
 
+    // FIXME: Remove
     public void StrikeCurrentTarget(int damage)
     {
         if (!currentTarget) { return; }
@@ -57,4 +81,22 @@ public class Attacker : MonoBehaviour
             levelController.AttackerKilled();
         }
     }
+
+    private IEnumerator WaitAndInstantiateProjectile()
+    {
+        yield return new WaitForSeconds(projectileDelay);
+        Instantiate(projectilePrefab, tankFiring.transform);
+    }
+
+    private IEnumerator FireContinuously()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(fireDelayMin, fireDelayMax));
+            Fire();
+        }
+    }
+
 }
+
+

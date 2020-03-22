@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class AttackerProjectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    [Range (0f, 20f)] [SerializeField] float projectileSpeed = 5f;
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector2.right * projectileSpeed * Time.deltaTime);
     }
 }
