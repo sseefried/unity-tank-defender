@@ -424,9 +424,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3905141577005697215}
   - component: {fileID: 3905141577005697213}
-  - component: {fileID: 3905141577005697203}
   - component: {fileID: 6578261905334997672}
   - component: {fileID: 890237716064105123}
+  - component: {fileID: 2790449394714341714}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -470,7 +470,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!82 &3905141577005697203
+--- !u!114 &6578261905334997672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3905141577005697214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f29b0a7286b54091990c51b6fe00c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 5676649677699851990, guid: 849f67fd12f724de9acd9a995ebb3d0a,
+    type: 3}
+  tankFiring: {fileID: 1117696840}
+  speed: 0.23
+  projectileDelay: 0.2
+  fireDelayMin: 2
+  fireDelayMax: 3
+--- !u!114 &890237716064105123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3905141577005697214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927ab054be4014d9a8ff0258354432e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  deathVFX: {fileID: 0}
+--- !u!82 &2790449394714341714
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -482,7 +515,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e6811bd73d80b4f859eed42c38f63a90, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.754
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -566,39 +599,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6578261905334997672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3905141577005697214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f29b0a7286b54091990c51b6fe00c74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 5676649677699851990, guid: 849f67fd12f724de9acd9a995ebb3d0a,
-    type: 3}
-  tankFiring: {fileID: 1117696840}
-  speed: 0.23
-  projectileDelay: 0.2
-  fireDelayMin: 2
-  fireDelayMax: 3
---- !u!114 &890237716064105123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3905141577005697214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 927ab054be4014d9a8ff0258354432e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 2
-  deathVFX: {fileID: 0}
 --- !u!1 &3905141577043389061
 GameObject:
   m_ObjectHideFlags: 0
