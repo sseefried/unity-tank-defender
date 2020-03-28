@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackerPrefabs:
-  - {fileID: 3651607018522268439, guid: aa7a15217bea8443fb6bf050a9960819, type: 3}
-  minDelay: 2
-  maxDelay: 10
+  - {fileID: 6578261905334997672, guid: 54c0fb1e6eef2444d81fa0c3456823b7, type: 3}
+  minDelay: 4
+  maxDelay: 4
