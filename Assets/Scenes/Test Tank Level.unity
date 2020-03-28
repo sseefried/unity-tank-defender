@@ -1343,6 +1343,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 86569437, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c, type: 3}
+      propertyPath: minDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 86569437, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c, type: 3}
+      propertyPath: maxDelay
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6762937408071138724, guid: e16c9e7030f4e43a1b5a0b5db06d8a0c,
         type: 3}
       propertyPath: m_Name

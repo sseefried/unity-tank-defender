@@ -33,12 +33,9 @@ public class Shooter : MonoBehaviour
         if (IsAttackerInLane())
         {
             
-            //animator.SetBool("isAttacking", true);
+            animator.SetTrigger("firing");
         }
-        else
-        {
-            //animator.SetBool("isAttacking", false);
-        }
+
     }
 
     private void SetLaneSpawner()

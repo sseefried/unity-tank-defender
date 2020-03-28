@@ -21,6 +21,8 @@ public class Health : MonoBehaviour
     {
         if (!deathVFX) { return; }
         GameObject deathVFXObject = Instantiate(deathVFX, transform.position, transform.rotation);
+        Debug.Log(transform.position);
+        Debug.Log(transform.rotation);
         Destroy(deathVFXObject, 1f);
     }
 
