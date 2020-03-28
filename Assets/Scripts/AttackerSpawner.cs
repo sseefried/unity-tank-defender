@@ -16,8 +16,8 @@ public class AttackerSpawner : MonoBehaviour
     {
         while (spawn)
         {
-            yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
             SpawnAttacker();
+            yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
                             
         }
     }
