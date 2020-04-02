@@ -28,6 +28,7 @@ public class LevelController : MonoBehaviour
     public void AttackerKilled()
     {
         numberOfAttackers -= 1;
+        Debug.Log("numberOfAttackers: " + numberOfAttackers + ", levelTimerFinished = " + levelTimerFinished);
         if (numberOfAttackers <= 0 && levelTimerFinished)
         {
             StartCoroutine(HandleWinCondition());
@@ -36,6 +37,7 @@ public class LevelController : MonoBehaviour
 
     public void LevelTimerFinished()
     {
+        Debug.Log("LevelController: LevelTimeFinished called");
         levelTimerFinished = true;
         StopSpawners();
     }

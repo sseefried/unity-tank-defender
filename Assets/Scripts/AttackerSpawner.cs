@@ -9,11 +9,13 @@ public class AttackerSpawner : MonoBehaviour
     [SerializeField] Attacker[] attackerPrefabs;
     [SerializeField] float minDelay = 1f;
     [SerializeField] float maxDelay = 5f;
+    [SerializeField] float initialMaxDelay = 2f;
 
     // If Start is a Coroutine then it automatically has an implicit
     // StartCoroutine put around it.
     IEnumerator Start()
     {
+        yield return new WaitForSeconds(Random.Range(0, initialMaxDelay));
         while (spawn)
         {
             SpawnAttacker();
