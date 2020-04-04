@@ -9,8 +9,7 @@ public class DamageCollider : MonoBehaviour
         GameObject otherObject = otherCollider.gameObject;
         if (otherObject.GetComponent<Attacker>())
         {
-            Destroy(otherObject);
-            FindObjectOfType<LivesDisplay>().TakeLife();
+            FindObjectOfType<LevelController>().HandleLoseCondition();
         }
     }
 }
