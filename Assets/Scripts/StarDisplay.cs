@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StarDisplay : MonoBehaviour
 {
+    [Header("Debug only")]
     [SerializeField] int stars = 100;
     Text starText;
 
@@ -28,6 +29,12 @@ public class StarDisplay : MonoBehaviour
             stars -= amount;
             UpdateDisplay();
         }
+    }
+
+    public void SetStars(int newStars)
+    {
+        stars = newStars;
+        UpdateDisplay();
     }
 
     public bool HaveEnoughStars(int amount)

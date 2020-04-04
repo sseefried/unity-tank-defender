@@ -13,11 +13,14 @@ EditorBuildSettings:
     guid: 670012bef376d4296bc675a66ff35d8d
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
+    guid: 431b415f417da40c59231af0dd98818f
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/8207a6fccf3ff436c8bc90b8427ae247
     guid: 8207a6fccf3ff436c8bc90b8427ae247
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 2.unity
     guid: fd1bdb18447aa401b86b87b65fb92cfc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 3.unity
     guid: d95a054df463042468d8b690aa1f28ae
   - enabled: 1
@@ -29,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lose Screen.unity
     guid: fb51b1aee935a4287b000ffd32d19fc6
+  - enabled: 1
+    path: Assets/Scenes/Test Tank Level.unity
+    guid: 48ea16323215b40b0a55874000a76569
   m_configObjects: {}

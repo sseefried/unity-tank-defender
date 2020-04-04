@@ -8,6 +8,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] GameObject winLabel;
     [SerializeField] GameObject loseLabel;
     [SerializeField] float timeToWait = 4f;
+    [SerializeField] int startingStars = 500;
 
     [Header("Debug only")]
     [SerializeField] int numberOfAttackers = 0;
@@ -19,6 +20,7 @@ public class LevelController : MonoBehaviour
         winLabel.SetActive(false);
         loseLabel.SetActive(false);
         levelEndChecker = StartCoroutine(LevelEndChecker());
+        FindObjectOfType<StarDisplay>().SetStars(startingStars);
     }
 
 

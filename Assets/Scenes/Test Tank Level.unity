@@ -1262,7 +1262,7 @@ GameObject:
   - component: {fileID: 1789737452}
   - component: {fileID: 1789737451}
   m_Layer: 0
-  m_Name: Cactus
+  m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1295,8 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0cba964fea4a428eba3290c6c6d58de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defenderPrefab: {fileID: 5015255967586680554, guid: 278dd79e2a7924a9488e56754520811f,
-    type: 3}
+  defenderPrefab: {fileID: 893804811, guid: 17349526cedd6456592ad9886cf43460, type: 3}
 --- !u!61 &1789737452
 BoxCollider2D:
   m_ObjectHideFlags: 0
