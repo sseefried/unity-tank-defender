@@ -7,10 +7,23 @@ public class Health : MonoBehaviour
     [SerializeField] int health = 2;
     [SerializeField] GameObject deathVFX;
 
+    int startingHealth; 
+    SimpleHealthBar healthBar;
+
+    private void Start()
+    {
+        startingHealth = health;
+        healthBar = GetComponentInChildren<SimpleHealthBar>();
+        Debug.Log("healthbar: " + (healthBar == null));
+    }
+
     public void DealDamage(int damage)
     {
-        Debug.Log("I've been hit!");
         health -= damage;
+        if (healthBar)
+        {
+            healthBar.UpdateBar(health, startingHealth);
+        }
         if (health <= 0)
         {
             TriggerDeathVFX();
