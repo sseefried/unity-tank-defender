@@ -19,7 +19,8 @@ public class Projectile : MonoBehaviour
         var health = other.GetComponent<Health>();
         var attacker = other.GetComponent<Attacker>();
 
-        if (!health || !attacker) { return;  }
+        // Projectile will sail past the attacker if it's not in range
+        if (!health || !attacker || !attacker.InRange()) { return;  }
         health.DealDamage(damage);
         Destroy(gameObject);
     }

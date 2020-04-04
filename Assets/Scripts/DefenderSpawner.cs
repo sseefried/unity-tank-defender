@@ -7,21 +7,10 @@ public class DefenderSpawner : MonoBehaviour
 {
     Defender defender;
     GameObject defenderParent;
-    const string DEFENDER_PARENT_NAME = "Instantiated Defenders";
 
-    private void Start()
+    private void Awake()
     {
-        CreateDefenderParent();
-    }
-
-    private void CreateDefenderParent()
-    {
-        defenderParent = GameObject.Find(DEFENDER_PARENT_NAME);
-        if (!defenderParent)
-        {
-            defenderParent = new GameObject(DEFENDER_PARENT_NAME);
-        }
-
+        defenderParent = FindObjectOfType<LevelController>().InstantiatedParent();
     }
 
     private void OnMouseDown()

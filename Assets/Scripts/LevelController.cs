@@ -13,7 +13,33 @@ public class LevelController : MonoBehaviour
     [Header("Debug only")]
     [SerializeField] int numberOfAttackers = 0;
     [SerializeField] bool levelTimerFinished;
+
     Coroutine levelEndChecker;
+    [SerializeField] SortedDictionary<int, int> defendersInLane;
+    [SerializeField] SortedDictionary<int, int> attackersInLane;
+
+    const string INSTANTIATED_PARENT_NAME = "Instantiated objects";
+    GameObject instantiatedParent;
+
+    const int MIN_LANE = 1;
+    const int MAX_LANE = 5;
+
+    private void Awake()
+    {
+        defendersInLane = new SortedDictionary<int, int>();
+        attackersInLane = new SortedDictionary<int, int>();
+        for (int i = MIN_LANE; i <= MAX_LANE; i++)
+        {
+            defendersInLane.Add(i, 0);
+            attackersInLane.Add(i, 0);
+        }
+        instantiatedParent = GameObject.Find(INSTANTIATED_PARENT_NAME);
+        if (!instantiatedParent)
+        {
+            instantiatedParent = new GameObject(INSTANTIATED_PARENT_NAME);
+        }
+    }
+
 
     private void Start()
     {
@@ -23,21 +49,47 @@ public class LevelController : MonoBehaviour
         FindObjectOfType<StarDisplay>().SetStars(startingStars);
     }
 
-
-    public void AttackerSpawned()
+    public GameObject InstantiatedParent()
     {
-        numberOfAttackers += 1;
+        return instantiatedParent;
     }
 
-    public void AttackerKilled()
+    public void AttackerSpawned(Attacker attacker)
+    {
+        numberOfAttackers += 1;
+        int lane = attacker.LaneNumber();
+        attackersInLane[lane] = attackersInLane[lane] + 1;
+    }
+
+    public void AttackerKilled(Attacker attacker)
     {
         numberOfAttackers -= 1;
+        int lane = attacker.LaneNumber();
+        attackersInLane[lane] = attackersInLane[lane] - 1;
         CheckForEndOfLevel();
+    }
+
+    public void DefenderSpawned(Defender defender)
+    {
+        if (!defender) { return; }
+        int lane = defender.LaneNumber();
+        defendersInLane[lane] = defendersInLane[lane] + 1;
+    }
+
+    public void DefenderKilled(Defender defender)
+    {
+        if (!defender) { return; } 
+        int lane = defender.LaneNumber();
+        defendersInLane[lane] = defendersInLane[lane] - 1;
+    }
+
+    public bool IsDefenderInLane(int lane)
+    {
+        return defendersInLane[lane] > 0;
     }
 
     public void LevelTimerFinished()
     {
-        Debug.Log("LevelController: LevelTimeFinished called");
         levelTimerFinished = true;
         StopSpawners();
     }

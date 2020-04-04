@@ -11,5 +11,9 @@ public class DamageCollider : MonoBehaviour
         {
             FindObjectOfType<LevelController>().HandleLoseCondition();
         }
+        if (otherObject.GetComponent<AttackerProjectile>())
+        {
+            Destroy(otherObject);
+        }
     }
 }

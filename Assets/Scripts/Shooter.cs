@@ -9,30 +9,23 @@ public class Shooter : MonoBehaviour
 
     AttackerSpawner myLaneSpawner;
     Animator animator;
-    GameObject projectileParent;
-    const string PROJECTILE_PARENT_NAME = "Projectiles";
-    
+    LevelController levelController;
+
+    private void Awake()
+    {
+        levelController = FindObjectOfType<LevelController>();
+    }
+
     private void Start()
     {
         SetLaneSpawner();
         animator = GetComponent<Animator>();
-        CreateProjectileParent();
-    }
-
-    private void CreateProjectileParent()
-    {
-        projectileParent = GameObject.Find(PROJECTILE_PARENT_NAME);
-        if (!projectileParent)
-        {
-            projectileParent = new GameObject(PROJECTILE_PARENT_NAME);
-        }
     }
 
     private void Update()
     {
-        if (IsAttackerInLane())
-        {
-            
+        if (IsAttackerInLaneAndInRange())
+        {          
             animator.SetTrigger("firing");
         }
 
@@ -53,11 +46,9 @@ public class Shooter : MonoBehaviour
         }
     }
 
-    private bool IsAttackerInLane()
+    private bool IsAttackerInLaneAndInRange()
     {
-        // if my lane spawner child count is less than or equal to 0
-        // then return false
-        return myLaneSpawner.transform.childCount > 0;
+        return myLaneSpawner.AttackerInRange();
     }
 
     public void Fire()
@@ -65,7 +56,7 @@ public class Shooter : MonoBehaviour
         Projectile projectileObject =
             Instantiate(projectile, gun.transform.position,
             gun.transform.rotation);
-        projectileObject.transform.parent = projectileParent.transform;
+        projectileObject.transform.parent = levelController.InstantiatedParent().transform;
     }
 
 

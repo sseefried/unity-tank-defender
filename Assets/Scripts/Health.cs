@@ -9,10 +9,12 @@ public class Health : MonoBehaviour
 
     public void DealDamage(int damage)
     {
+        Debug.Log("I've been hit!");
         health -= damage;
         if (health <= 0)
         {
             TriggerDeathVFX();
+            FindObjectOfType<LevelController>().DefenderKilled(gameObject.GetComponent<Defender>());
             Destroy(gameObject);
         }
     }

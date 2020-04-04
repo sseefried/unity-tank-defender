@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
+    [Header("Configuration")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] GameObject tankFiring;
     [Range(0f,3f)] [SerializeField] float speed = 1f;
@@ -12,14 +13,18 @@ public class Attacker : MonoBehaviour
     [SerializeField] float fireDelayMin = 3f;
     [SerializeField] float fireDelayMax = 5f;
 
+    [Header("Debug only")]
+    [SerializeField] int laneNumber = 0;
+
     float currentSpeed;
-
-    GameObject currentTarget;
-
+    bool inRange = false;
+    LevelController levelController;
 
     private void Awake()
     {
-        FindObjectOfType<LevelController>().AttackerSpawned();
+        laneNumber = Mathf.FloorToInt(transform.position.y);
+        levelController = FindObjectOfType<LevelController>();
+        levelController.AttackerSpawned(this);       
     }
 
     private void Start()
@@ -31,16 +36,25 @@ public class Attacker : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.left * Time.deltaTime * currentSpeed);
-        //UpdateAnimationState();
     }
 
-    //private void UpdateAnimationState()
-    //{
-    //    if (!currentTarget)
-    //    {
-    //        GetComponent<Animator>().SetBool("isAttacking", false);
-    //    }
-    //}
+    public int LaneNumber()
+    {
+        return laneNumber;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoreGameArea")
+        {
+            inRange = true;
+        }
+    }
+
+    public bool InRange()
+    {
+        return inRange;
+    }
 
     public void SetMoving()
     {
@@ -50,27 +64,14 @@ public class Attacker : MonoBehaviour
 
     public void Fire()
     {
-        if (!tankFiring || !projectilePrefab) { return; }
+        if (!tankFiring || !projectilePrefab || !inRange || !DefenderInLane()) { return; }
         tankFiring.GetComponent<Animator>().SetTrigger("firing");
         StartCoroutine(WaitAndInstantiateProjectile());
     }
 
-    // FIXME: Remove
-    public void Attack(GameObject target)
+    private bool DefenderInLane()
     {
-        GetComponent<Animator>().SetBool("isAttacking", true);
-        currentTarget = target;
-    }
-
-    // FIXME: Remove
-    public void StrikeCurrentTarget(int damage)
-    {
-        if (!currentTarget) { return; }
-        Health health = currentTarget.GetComponent<Health>();
-        if (health)
-        {
-            health.DealDamage(damage);
-        }
+        return FindObjectOfType<LevelController>().IsDefenderInLane(laneNumber);
     }
 
     private void OnDestroy()
@@ -78,14 +79,15 @@ public class Attacker : MonoBehaviour
         LevelController levelController = FindObjectOfType<LevelController>();
         if (levelController)
         {
-            levelController.AttackerKilled();
+            levelController.AttackerKilled(this);
         }
     }
 
     private IEnumerator WaitAndInstantiateProjectile()
     {
         yield return new WaitForSeconds(projectileDelay);
-        Instantiate(projectilePrefab, tankFiring.transform);
+        GameObject projectile = Instantiate(projectilePrefab, tankFiring.transform);
+        projectile.transform.parent = levelController.InstantiatedParent().transform;
     }
 
     private IEnumerator FireContinuously()

@@ -6,10 +6,18 @@ public class AttackerSpawner : MonoBehaviour
 {
     bool spawn = true;
 
+    [Header("Configuration")]
     [SerializeField] Attacker[] attackerPrefabs;
     [SerializeField] float minDelay = 1f;
     [SerializeField] float maxDelay = 5f;
     [SerializeField] float initialMaxDelay = 2f;
+
+    LevelController levelController;
+
+    private void Awake()
+    {
+        levelController = FindObjectOfType<LevelController>();
+    }
 
     // If Start is a Coroutine then it automatically has an implicit
     // StartCoroutine put around it.
@@ -19,8 +27,7 @@ public class AttackerSpawner : MonoBehaviour
         while (spawn)
         {
             SpawnAttacker();
-            yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
-                            
+            yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));                           
         }
     }
 
@@ -29,19 +36,25 @@ public class AttackerSpawner : MonoBehaviour
         spawn = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool AttackerInRange()
     {
-        
+        foreach (Attacker attacker in GetComponentsInChildren<Attacker>())
+        {
+            if (attacker.InRange())
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void SpawnAttacker()
     {
         var attackerIndex = Random.Range(0, attackerPrefabs.Length);
-        Spawn(attackerPrefabs[attackerIndex]);
+        Attacker attacker = Spawn(attackerPrefabs[attackerIndex]);
     }
 
-    private void Spawn(Attacker attacker)
+    private Attacker Spawn(Attacker attacker)
     {
         Attacker newAttacker =
             Instantiate(attacker,
@@ -49,5 +62,6 @@ public class AttackerSpawner : MonoBehaviour
                         transform.rotation) as Attacker;
 
         newAttacker.transform.parent = transform;
+        return newAttacker;
     }
 }
