@@ -5,17 +5,41 @@ using UnityEngine;
 
 public class DefenderSpawner : MonoBehaviour
 {
+    [Header("Configuration")]
+    [SerializeField] Sprite sprite;
+    [Range(0, 1)]
+    [SerializeField] float spriteTransparency = 0.5f;
+
     Defender defender;
     GameObject defenderParent;
+    LevelController levelController;
 
     private void Awake()
     {
-        defenderParent = FindObjectOfType<LevelController>().InstantiatedParent();
+        levelController = FindObjectOfType<LevelController>();
+        defenderParent = levelController.InstantiatedParent();
+    }
+
+    private void OnMouseOver()
+    {
+        if (!defender) { return; }
+        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        Vector2 square = GetSquare();
+        if (levelController.IsDefenderAt(Mathf.RoundToInt(square.y), Mathf.RoundToInt(square.x)))
+        {
+            spriteRenderer.sprite = null;
+        }
+        else
+        {
+            spriteRenderer.gameObject.transform.position = square;
+            spriteRenderer.sprite = sprite;
+            spriteRenderer.color = new Color(1, 1, 1, spriteTransparency);
+        }
     }
 
     private void OnMouseDown()
     {
-        AttemptToPlaceDefenderAt(GetSquareClicked());
+        AttemptToPlaceDefenderAt(GetSquare());
     }
 
     public void SetSelectedDefender(Defender defenderToSelect)
@@ -29,14 +53,13 @@ public class DefenderSpawner : MonoBehaviour
         int defenderCost = defender.GetStarCost();
         if (starDisplay.HaveEnoughStars(defenderCost))
         {
-
             SpawnDefender(worldPos);
             starDisplay.SpendStars(defenderCost);
         }
 
     }
 
-    private Vector2 GetSquareClicked()
+    private Vector2 GetSquare()
     {
         Vector2 clickPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(clickPos);

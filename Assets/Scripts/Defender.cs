@@ -8,17 +8,24 @@ public class Defender : MonoBehaviour
     [SerializeField] int starCost = 100;
 
     [Header("Debug Only")]
-    [SerializeField] int laneNumber;
+    [SerializeField] int row;
+    [SerializeField] int column;
 
     private void Start()
     {
-        laneNumber = Mathf.FloorToInt(transform.position.y);
+        row = Mathf.FloorToInt(transform.position.y);
+        column = Mathf.FloorToInt(transform.position.x);
         FindObjectOfType<LevelController>().DefenderSpawned(this);
     }
 
-    public int LaneNumber()
+    public int Row()
     {
-        return laneNumber;
+        return row;
+    }
+
+    public int Column()
+    {
+        return column;
     }
 
     public int GetStarCost()

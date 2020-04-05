@@ -14,7 +14,6 @@ public class Health : MonoBehaviour
     {
         startingHealth = health;
         healthBar = GetComponentInChildren<SimpleHealthBar>();
-        Debug.Log("healthbar: " + (healthBar == null));
     }
 
     public void DealDamage(int damage)

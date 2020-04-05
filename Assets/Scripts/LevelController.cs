@@ -15,23 +15,32 @@ public class LevelController : MonoBehaviour
     [SerializeField] bool levelTimerFinished;
 
     Coroutine levelEndChecker;
-    [SerializeField] SortedDictionary<int, int> defendersInLane;
-    [SerializeField] SortedDictionary<int, int> attackersInLane;
+    [SerializeField] bool[][] defenders; // whether a defender is in a row or column
+    [SerializeField] int[] attackersInLane;
 
     const string INSTANTIATED_PARENT_NAME = "Instantiated objects";
     GameObject instantiatedParent;
 
-    const int MIN_LANE = 1;
-    const int MAX_LANE = 5;
+    const int MIN_ROW = 1;
+    const int MAX_ROW = 5;
+    const int NUM_ROWS = MAX_ROW - MIN_ROW + 1;
+
+    const int MIN_COLUMN = 1;
+    const int MAX_COLUMN = 9;
+    const int NUM_COLUMNS = MAX_COLUMN - MIN_COLUMN + 1;
 
     private void Awake()
     {
-        defendersInLane = new SortedDictionary<int, int>();
-        attackersInLane = new SortedDictionary<int, int>();
-        for (int i = MIN_LANE; i <= MAX_LANE; i++)
+        defenders = new bool[NUM_ROWS + MIN_ROW][]; // unused elements at beginning
+        attackersInLane = new int[NUM_ROWS + MIN_ROW]; // unused elements at beginning
+        for (int i = MIN_ROW; i <= MAX_ROW; i++)
         {
-            defendersInLane.Add(i, 0);
-            attackersInLane.Add(i, 0);
+            defenders[i] = new bool[NUM_COLUMNS + MIN_COLUMN]; // unused elements at beginning
+            for (int j = MIN_COLUMN; j <= MAX_COLUMN; j++)
+            {
+                defenders[i][j] = false;
+            }
+            attackersInLane[i] = 0;
         }
         instantiatedParent = GameObject.Find(INSTANTIATED_PARENT_NAME);
         if (!instantiatedParent)
@@ -72,20 +81,31 @@ public class LevelController : MonoBehaviour
     public void DefenderSpawned(Defender defender)
     {
         if (!defender) { return; }
-        int lane = defender.LaneNumber();
-        defendersInLane[lane] = defendersInLane[lane] + 1;
+        defenders[defender.Row()][defender.Column()] = true;
+
     }
 
     public void DefenderKilled(Defender defender)
     {
-        if (!defender) { return; } 
-        int lane = defender.LaneNumber();
-        defendersInLane[lane] = defendersInLane[lane] - 1;
+        if (!defender) { return; }
+        defenders[defender.Row()][defender.Column()] = false;
     }
 
     public bool IsDefenderInLane(int lane)
     {
-        return defendersInLane[lane] > 0;
+        for (int j = MIN_COLUMN; j <= MAX_COLUMN; j++)
+        {
+            if (defenders[lane][j])
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool IsDefenderAt(int row, int column)
+    {
+        return defenders[row][column];
     }
 
     public void LevelTimerFinished()
@@ -115,7 +135,6 @@ public class LevelController : MonoBehaviour
     {
         loseLabel.SetActive(true);
         Time.timeScale = 0;
-        
     }
 
     private IEnumerator LevelEndChecker()
