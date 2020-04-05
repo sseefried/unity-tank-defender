@@ -19,23 +19,27 @@ public class DefenderSpawner : MonoBehaviour
         levelController = FindObjectOfType<LevelController>();
         defenderParent = levelController.InstantiatedParent();
     }
-
-    private void OnMouseOver()
+    private void Update()
     {
         if (!defender) { return; }
         SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         Vector2 square = GetSquare();
-        if (levelController.IsDefenderAt(Mathf.RoundToInt(square.y), Mathf.RoundToInt(square.x)))
-        {
-            spriteRenderer.sprite = null;
-        }
-        else
+        spriteRenderer.sprite = null;
+        if (MouseInGameArea() && !levelController.IsDefenderAt(Mathf.RoundToInt(square.y), Mathf.RoundToInt(square.x)))
         {
             spriteRenderer.gameObject.transform.position = square;
             spriteRenderer.sprite = sprite;
             spriteRenderer.color = new Color(1, 1, 1, spriteTransparency);
         }
     }
+
+    private bool MouseInGameArea()
+    {
+        Vector2 square = GetSquare();
+        return (square.x >= LevelController.MIN_COLUMN || square.x <= LevelController.MAX_COLUMN ||
+                square.y >= LevelController.MIN_ROW || square.y <= LevelController.MAX_ROW);
+    }
+
 
     private void OnMouseDown()
     {

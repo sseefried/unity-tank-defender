@@ -21,12 +21,12 @@ public class LevelController : MonoBehaviour
     const string INSTANTIATED_PARENT_NAME = "Instantiated objects";
     GameObject instantiatedParent;
 
-    const int MIN_ROW = 1;
-    const int MAX_ROW = 5;
+    public const int MIN_ROW = 1;
+    public const int MAX_ROW = 5;
     const int NUM_ROWS = MAX_ROW - MIN_ROW + 1;
 
-    const int MIN_COLUMN = 1;
-    const int MAX_COLUMN = 9;
+    public const int MIN_COLUMN = 1;
+    public const int MAX_COLUMN = 9;
     const int NUM_COLUMNS = MAX_COLUMN - MIN_COLUMN + 1;
 
     private void Awake()
