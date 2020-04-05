@@ -250,8 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starCost: 100
-  row: 0
-  column: 0
+  laneNumber: 0
 --- !u!61 &463515414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -351,7 +350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7723634997093150693}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06999993, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 7723634996758492966}
@@ -394,12 +393,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 67db4bb9a364a4275b37d8cff4d2f158, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5}
+  m_Sprite: {fileID: 21300000, guid: 16776766d399f4f109d2d9bb2abe9fad, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.256, y: 1.008}
+  m_Size: {x: 0.38, y: 0.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
