@@ -6,6 +6,7 @@ public class Defender : MonoBehaviour
 {
     [Header("Configuration")]
     [SerializeField] int starCost = 100;
+    [SerializeField] public Sprite staticSprite;
 
     [Header("Debug Only")]
     [SerializeField] int row;

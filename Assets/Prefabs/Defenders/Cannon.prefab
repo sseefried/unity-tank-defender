@@ -152,7 +152,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starCost: 100
-  laneNumber: 0
+  staticSprite: {fileID: 21300000, guid: 7d1a1177460d440b29718f6468ce3f3f, type: 3}
+  row: 0
+  column: 0
 --- !u!114 &893804812
 MonoBehaviour:
   m_ObjectHideFlags: 0

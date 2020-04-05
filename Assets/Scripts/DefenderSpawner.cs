@@ -6,38 +6,45 @@ using UnityEngine;
 public class DefenderSpawner : MonoBehaviour
 {
     [Header("Configuration")]
-    [SerializeField] Sprite sprite;
     [Range(0, 1)]
     [SerializeField] float spriteTransparency = 0.5f;
 
     Defender defender;
     GameObject defenderParent;
     LevelController levelController;
+    SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         levelController = FindObjectOfType<LevelController>();
         defenderParent = levelController.InstantiatedParent();
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
     private void Update()
     {
         if (!defender) { return; }
-        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
         Vector2 square = GetSquare();
         spriteRenderer.sprite = null;
-        if (MouseInGameArea() && !levelController.IsDefenderAt(Mathf.RoundToInt(square.y), Mathf.RoundToInt(square.x)))
+        Debug.Log("defender static sprite = " + (defender.staticSprite == null));
+        if (MouseInGameArea() && !levelController.IsDefenderAt(Mathf.RoundToInt(square.y), Mathf.RoundToInt(square.x)) && defender.staticSprite)
         {
             spriteRenderer.gameObject.transform.position = square;
-            spriteRenderer.sprite = sprite;
+            spriteRenderer.sprite = defender.staticSprite;
             spriteRenderer.color = new Color(1, 1, 1, spriteTransparency);
         }
+        
     }
 
     private bool MouseInGameArea()
     {
         Vector2 square = GetSquare();
-        return (square.x >= LevelController.MIN_COLUMN || square.x <= LevelController.MAX_COLUMN ||
-                square.y >= LevelController.MIN_ROW || square.y <= LevelController.MAX_ROW);
+        if (square.x >= LevelController.MIN_COLUMN && square.x <= LevelController.MAX_COLUMN &&
+            square.y >= LevelController.MIN_ROW && square.y <= LevelController.MAX_ROW)
+        {
+            return true;
+        }
+        return false;
     }
 
 
@@ -65,8 +72,8 @@ public class DefenderSpawner : MonoBehaviour
 
     private Vector2 GetSquare()
     {
-        Vector2 clickPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        Vector2 worldPos = Camera.main.ScreenToWorldPoint(clickPos);
+        Vector2 pos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        Vector2 worldPos = Camera.main.ScreenToWorldPoint(pos);
         //Debug.Log("clickPos = " + clickPos.ToString() + ", worldPos " + worldPos.ToString());
         return SnapToGrid(worldPos);
     }
