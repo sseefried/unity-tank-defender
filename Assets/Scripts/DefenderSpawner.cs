@@ -80,7 +80,7 @@ public class DefenderSpawner : MonoBehaviour
         Destroy(placeDefenderObject.GetComponent<Shooter>());
         Destroy(placeDefenderObject.GetComponent<Firing>());
         Destroy(placeDefenderObject.GetComponent<Defender>());
-        Destroy(placeDefenderObject.GetComponentInChildren<Canvas>());
+        Destroy(placeDefenderObject.GetComponentInChildren<Canvas>().gameObject);
         ShowPlaceDefenderObject();
     }
 
