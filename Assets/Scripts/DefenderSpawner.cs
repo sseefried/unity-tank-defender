@@ -39,7 +39,6 @@ public class DefenderSpawner : MonoBehaviour
                 color = new Color(1f, 0f, 0f, spriteTransparency); 
             }
             ChangeColorOfPlaceDefenderObject(color);
-
             placeDefenderObject.SetActive(true);
             placeDefenderObject.transform.position = square;
         }
@@ -72,12 +71,16 @@ public class DefenderSpawner : MonoBehaviour
         CreatePlaceDefenderObject();
     }
 
-    // FIXME: This could be a lot cleaner. You really just want to clone the images...
     private void CreatePlaceDefenderObject()
     {
         placeDefenderObject = Instantiate(defender.gameObject);
         placeDefenderObject.GetComponent<Animator>().enabled = false; // so that it doesn't animate
         placeDefenderObject.GetComponentInChildren<Collider2D>().enabled = false; // so that you can click in the game area
+        Destroy(placeDefenderObject.GetComponent<Health>());
+        Destroy(placeDefenderObject.GetComponent<Shooter>());
+        Destroy(placeDefenderObject.GetComponent<Firing>());
+        Destroy(placeDefenderObject.GetComponent<Defender>());
+        Destroy(placeDefenderObject.GetComponentInChildren<Canvas>());
         ShowPlaceDefenderObject();
     }
 
