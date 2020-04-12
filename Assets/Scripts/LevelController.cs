@@ -78,17 +78,14 @@ public class LevelController : MonoBehaviour
         CheckForEndOfLevel();
     }
 
-    public void DefenderSpawned(Defender defender)
+    public void DefenderSpawned(int row, int column)
     {
-        if (!defender) { return; }
-        defenders[defender.Row()][defender.Column()] = true;
-
+        defenders[row][column] = true;
     }
 
-    public void DefenderKilled(Defender defender)
+    public void DefenderKilled(int row, int column)
     {
-        if (!defender) { return; }
-        defenders[defender.Row()][defender.Column()] = false;
+        defenders[row][column] = false;
     }
 
     public bool IsDefenderInLane(int lane)

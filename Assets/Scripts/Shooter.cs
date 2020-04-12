@@ -48,6 +48,7 @@ public class Shooter : MonoBehaviour
 
     private bool IsAttackerInLaneAndInRange()
     {
+        if (!myLaneSpawner) { return false;  }
         return myLaneSpawner.AttackerInRange();
     }
 

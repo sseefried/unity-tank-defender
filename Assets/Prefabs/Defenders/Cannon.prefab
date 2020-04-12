@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starCost: 100
-  staticSprite: {fileID: 21300000, guid: 7d1a1177460d440b29718f6468ce3f3f, type: 3}
+  clip: {fileID: 7400000, guid: 133840b3242064cf8b97baca356f76c6, type: 2}
   row: 0
   column: 0
 --- !u!114 &893804812

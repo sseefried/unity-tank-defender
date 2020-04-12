@@ -1,22 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 public class Defender : MonoBehaviour
 {
     [Header("Configuration")]
     [SerializeField] int starCost = 100;
-    [SerializeField] public Sprite staticSprite;
+    [SerializeField] AnimationClip clip;
+
 
     [Header("Debug Only")]
     [SerializeField] int row;
     [SerializeField] int column;
 
+
     private void Start()
     {
         row = Mathf.FloorToInt(transform.position.y);
         column = Mathf.FloorToInt(transform.position.x);
-        FindObjectOfType<LevelController>().DefenderSpawned(this);
     }
 
     public int Row()
@@ -33,4 +35,5 @@ public class Defender : MonoBehaviour
     {
         return starCost;
     }
+        
 }

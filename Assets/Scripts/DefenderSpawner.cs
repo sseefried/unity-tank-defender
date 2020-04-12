@@ -12,28 +12,41 @@ public class DefenderSpawner : MonoBehaviour
     Defender defender;
     GameObject defenderParent;
     LevelController levelController;
-    SpriteRenderer spriteRenderer;
+    GameObject placeDefenderObject;
 
     private void Awake()
     {
         levelController = FindObjectOfType<LevelController>();
         defenderParent = levelController.InstantiatedParent();
-        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+
     }
+
     private void Update()
     {
         if (!defender) { return; }
+        ShowPlaceDefenderObject();
+    }
 
+    private void ShowPlaceDefenderObject()
+    {
         Vector2 square = GetSquare();
-        spriteRenderer.sprite = null;
-        Debug.Log("defender static sprite = " + (defender.staticSprite == null));
-        if (MouseInGameArea() && !levelController.IsDefenderAt(Mathf.RoundToInt(square.y), Mathf.RoundToInt(square.x)) && defender.staticSprite)
+        if (MouseInGameArea() && !levelController.IsDefenderAt(Mathf.RoundToInt(square.y), Mathf.RoundToInt(square.x)) && placeDefenderObject)
         {
-            spriteRenderer.gameObject.transform.position = square;
-            spriteRenderer.sprite = defender.staticSprite;
-            spriteRenderer.color = new Color(1, 1, 1, spriteTransparency);
+            Color color = new Color(1, 1, 1, spriteTransparency);
+            var starDisplay = FindObjectOfType<StarDisplay>();
+            if (!starDisplay.HaveEnoughStars(defender.GetStarCost())) // if not enough stars display as another colour
+            {
+                color = new Color(1f, 0f, 0f, spriteTransparency); 
+            }
+            ChangeColorOfPlaceDefenderObject(color);
+
+            placeDefenderObject.SetActive(true);
+            placeDefenderObject.transform.position = square;
         }
-        
+        else
+        {
+            placeDefenderObject.SetActive(false);
+        }
     }
 
     private bool MouseInGameArea()
@@ -56,6 +69,16 @@ public class DefenderSpawner : MonoBehaviour
     public void SetSelectedDefender(Defender defenderToSelect)
     {
         defender = defenderToSelect;
+        CreatePlaceDefenderObject();
+    }
+
+    // FIXME: This could be a lot cleaner. You really just want to clone the images...
+    private void CreatePlaceDefenderObject()
+    {
+        placeDefenderObject = Instantiate(defender.gameObject);
+        placeDefenderObject.GetComponent<Animator>().enabled = false; // so that it doesn't animate
+        placeDefenderObject.GetComponentInChildren<Collider2D>().enabled = false; // so that you can click in the game area
+        ShowPlaceDefenderObject();
     }
 
     private void AttemptToPlaceDefenderAt(Vector2 worldPos)
@@ -92,5 +115,18 @@ public class DefenderSpawner : MonoBehaviour
         Defender newDefender = Instantiate(defender, worldPos, Quaternion.identity) as Defender;
         Canvas canvas = FindObjectOfType<Canvas>();
         newDefender.transform.parent = defenderParent.transform;
+        levelController.DefenderSpawned(Mathf.RoundToInt(worldPos.y), Mathf.RoundToInt(worldPos.x));
     }
+
+    private void ChangeColorOfPlaceDefenderObject(Color color)
+    {
+        if (!placeDefenderObject) { return; }
+        foreach (SpriteRenderer renderer in placeDefenderObject.GetComponentsInChildren<SpriteRenderer>())
+        {
+            renderer.color = color;
+        }
+
+
+    }
+
 }

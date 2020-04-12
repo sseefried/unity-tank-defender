@@ -26,7 +26,11 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             TriggerDeathVFX();
-            FindObjectOfType<LevelController>().DefenderKilled(gameObject.GetComponent<Defender>());
+            Defender defender = gameObject.GetComponent<Defender>();
+            if (defender) // if it's a defender
+            {
+                FindObjectOfType<LevelController>().DefenderKilled(defender.Row(), defender.Column());
+            }
             Destroy(gameObject);
         }
     }
