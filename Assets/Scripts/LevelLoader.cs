@@ -19,7 +19,6 @@ public class LevelLoader : MonoBehaviour
         {
             StartCoroutine(WaitAndLoad());
         }
-
     }
 
     public void RestartScene()
@@ -32,6 +31,11 @@ public class LevelLoader : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("Start Screen");
+        MusicPlayer player = FindObjectOfType<MusicPlayer>();
+        if (player)
+        {
+            player.SetMusic(player.startScreenMusic);
+        }
     }
 
     public void LoadNextScene()

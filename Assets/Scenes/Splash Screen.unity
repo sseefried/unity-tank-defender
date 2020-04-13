@@ -404,8 +404,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19, y: -432}
-  m_SizeDelta: {x: 381.8, y: 113.4}
+  m_AnchoredPosition: {x: -170, y: -459}
+  m_SizeDelta: {x: 771.2, y: 119.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1318999994
 MonoBehaviour:
@@ -420,18 +420,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.60492545, g: 0, b: 0.9339623, a: 1}
+  m_Color: {r: 0.53333336, g: 0.5803922, b: 0.34509805, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7e7077514b22f4edc95ed18dcce4c151, type: 3}
-    m_FontSize: 72
+    m_Font: {fileID: 12800000, guid: 11754dc4ed41b46d1a01463daa0d67a1, type: 3}
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 96
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d1494c4b0a34744b9ade2e485c987a00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99a936f06b7f047048c9b4728c050ad2, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 2113769431}
   - component: {fileID: 2113769433}
   m_Layer: 5
-  m_Name: Garden Text
+  m_Name: Title Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,8 +554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -3}
-  m_SizeDelta: {x: 433.1, y: 150.4}
+  m_AnchoredPosition: {x: 44, y: 44}
+  m_SizeDelta: {x: 1378.2, y: 901.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2113769431
 MonoBehaviour:
@@ -570,25 +570,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.11330427, g: 0.5754717, b: 0.04071733, a: 1}
+  m_Color: {r: 0.8431373, g: 0.85098046, b: 0.7294118, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7e7077514b22f4edc95ed18dcce4c151, type: 3}
-    m_FontSize: 120
+    m_Font: {fileID: 12800000, guid: 11754dc4ed41b46d1a01463daa0d67a1, type: 3}
+    m_FontSize: 250
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 120
+    m_MaxSize: 250
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Garden
+  m_Text: TANK DEFENDER
 --- !u!222 &2113769432
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -671,7 +671,7 @@ PrefabInstance:
     - target: {fileID: 1410048454970613819, guid: 0bc09822527854ff4b2cd2adafcc093a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1410048454970613819, guid: 0bc09822527854ff4b2cd2adafcc093a,
         type: 3}
@@ -735,7 +735,7 @@ PrefabInstance:
     - target: {fileID: 3047444199123333409, guid: 4148c6920310b4b3e84aaa34e17dfa61,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3047444199123333409, guid: 4148c6920310b4b3e84aaa34e17dfa61,
         type: 3}
@@ -752,79 +752,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3398545741042497701, guid: 4148c6920310b4b3e84aaa34e17dfa61,
+        type: 3}
+      propertyPath: splashScreenMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e40807311c4a488fbe08da1b95d2da5, type: 3}
+    - target: {fileID: 3398545741042497701, guid: 4148c6920310b4b3e84aaa34e17dfa61,
+        type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: d6bd7d3df46294d4b9c7f8bb28360687, type: 3}
+    - target: {fileID: 3398545741042497701, guid: 4148c6920310b4b3e84aaa34e17dfa61,
+        type: 3}
+      propertyPath: startScreenMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e40807311c4a488fbe08da1b95d2da5, type: 3}
     - target: {fileID: 4141017222780637614, guid: 4148c6920310b4b3e84aaa34e17dfa61,
         type: 3}
       propertyPath: m_Name
       value: Music Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7362138801466879857, guid: 4148c6920310b4b3e84aaa34e17dfa61,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e40807311c4a488fbe08da1b95d2da5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4148c6920310b4b3e84aaa34e17dfa61, type: 3}
---- !u!1001 &3502511305726817589
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3502511304836867372, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_Name
-      value: Load Sound
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 770.51904
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 192.31723
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -23.017954
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3502511304836867374, guid: 687794c689d5a4e949f9300ccd9f6d95,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 687794c689d5a4e949f9300ccd9f6d95, type: 3}

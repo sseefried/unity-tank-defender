@@ -15,7 +15,7 @@ public class Defender : MonoBehaviour
     [SerializeField] int column;
 
 
-    private void Start()
+    private void Awake()
     {
         row = Mathf.FloorToInt(transform.position.y);
         column = Mathf.FloorToInt(transform.position.x);
