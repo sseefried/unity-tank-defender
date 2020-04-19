@@ -13,5 +13,7 @@
 [X] Change music
 [ ] Add sound effects for placing defenders and not being able because too few stars
 [ ] Add explosion sound effects
-[ ] Change fonts for money
+[X] Change fonts for money
+[ ] Change "Congratulations" screen
+[ ] Add sad music on "Position Overrun" screen
 
