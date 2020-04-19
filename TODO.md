@@ -13,4 +13,5 @@
 [X] Change music
 [ ] Add sound effects for placing defenders and not being able because too few stars
 [ ] Add explosion sound effects
+[ ] Change fonts for money
 
