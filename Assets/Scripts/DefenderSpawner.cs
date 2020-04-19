@@ -8,6 +8,7 @@ public class DefenderSpawner : MonoBehaviour
     [Header("Configuration")]
     [Range(0, 1)]
     [SerializeField] float spriteTransparency = 0.5f;
+    [SerializeField] AudioClip placeSound;
 
     Defender defender;
     GameObject defenderParent;
@@ -91,6 +92,7 @@ public class DefenderSpawner : MonoBehaviour
         if (starDisplay.HaveEnoughStars(defenderCost))
         {
             SpawnDefender(worldPos);
+            AudioSource.PlayClipAtPoint(placeSound, Camera.main.transform.position);
             starDisplay.SpendStars(defenderCost);
         }
 

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DefenderButton : MonoBehaviour
 {
     [SerializeField] Defender defenderPrefab;
+    [SerializeField] AudioClip selectSound;
 
     private void Start()
     {
@@ -29,5 +30,6 @@ public class DefenderButton : MonoBehaviour
         }
         GetComponentInChildren<SpriteRenderer>().color = Color.white;
         FindObjectOfType<DefenderSpawner>().SetSelectedDefender(defenderPrefab);
+        AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position);
     }
 }
