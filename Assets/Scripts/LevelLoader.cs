@@ -14,7 +14,8 @@ public class LevelLoader : MonoBehaviour
 
     private void Start()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Scene activeScene = SceneManager.GetActiveScene();
+        currentSceneIndex = activeScene.buildIndex;
         if (currentSceneIndex == 0 )
         {
             StartCoroutine(WaitAndLoad());
@@ -64,4 +65,5 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(timeToWait);
         LoadNextScene();
     }
+
 }

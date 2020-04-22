@@ -8,25 +8,36 @@ public class MusicPlayer : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] public AudioClip startScreenMusic;
     [SerializeField] public AudioClip levelMusic;
+    [SerializeField] public AudioClip winMusic;
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         SetUpSingleton();
-        audioSource = FindObjectOfType<AudioSource>();
     }
 
     void OnEnable()
     {
+        // Required so that OnSceneLoaded gets called
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         AudioSource oldAudioSource = audioSource;
-        audioSource = FindObjectOfType<AudioSource>();
-        if (audioSource != oldAudioSource)
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource != oldAudioSource && oldAudioSource != null)
         {
             oldAudioSource.Stop();
+        }
+
+        if (scene.name == "Win Screen")
+        {
+            SetMusic(winMusic);
+        }
+        if (scene.name.Contains("Level"))
+        {
+            SetMusic(levelMusic);
         }
     }
 

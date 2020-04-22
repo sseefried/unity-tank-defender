@@ -26,6 +26,13 @@ public class DefenderSpawner : MonoBehaviour
     {
         if (!defender) { return; }
         ShowPlaceDefenderObject();
+
+        // FIXME: Remove once you've finished game
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Debug.Log("Win!");
+            FindObjectOfType<LevelController>().ForceWin();
+        }
     }
 
     private void ShowPlaceDefenderObject()
@@ -87,6 +94,7 @@ public class DefenderSpawner : MonoBehaviour
 
     private void AttemptToPlaceDefenderAt(Vector2 worldPos)
     {
+        if (!defender) { return; }
         var starDisplay = FindObjectOfType<StarDisplay>();
         int defenderCost = defender.GetStarCost();
         if (starDisplay.HaveEnoughStars(defenderCost))

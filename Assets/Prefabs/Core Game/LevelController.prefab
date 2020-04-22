@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 535258646581640798}
   - component: {fileID: 6291321485027512395}
   - component: {fileID: 411328547}
+  - component: {fileID: 1508608743}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -48,8 +49,10 @@ MonoBehaviour:
   winLabel: {fileID: 0}
   loseLabel: {fileID: 0}
   timeToWait: 4
+  startingStars: 200
   numberOfAttackers: 0
   levelTimerFinished: 0
+  attackersInLane: 
 --- !u!114 &6291321485027512395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,3 +163,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1508608743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8773721399828036254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3320a62002185455d95a9a97d91c5084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelTime: 30

@@ -56,11 +56,6 @@ public class LevelController : MonoBehaviour
         loseLabel.SetActive(false);
         levelEndChecker = StartCoroutine(LevelEndChecker());
         FindObjectOfType<StarDisplay>().SetStars(startingStars);
-        MusicPlayer musicPlayer = FindObjectOfType<MusicPlayer>();
-        if (musicPlayer)
-        {
-            musicPlayer.SetMusic(musicPlayer.levelMusic);
-        }
         foreach (Defender defender in FindObjectsOfType<Defender>())
         {
             DefenderSpawned(defender.Row(), defender.Column());
@@ -127,6 +122,12 @@ public class LevelController : MonoBehaviour
         {
             spawner.StopSpawning();
         }
+    }
+
+    public void ForceWin()
+    {
+        StopCoroutine(levelEndChecker);
+        StartCoroutine(HandleWinCondition());
     }
 
     private IEnumerator HandleWinCondition()
