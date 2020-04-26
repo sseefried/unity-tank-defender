@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winLabel: {fileID: 0}
   loseLabel: {fileID: 0}
-  timeToWait: 4
+  timeToWait: 5.5
   startingStars: 200
   numberOfAttackers: 0
   levelTimerFinished: 0
@@ -77,9 +77,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 42f79a81cd40b49c48dc2913342b4d8d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 499984ad3e51d48d1ae7da743e2dde6f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.757
   m_Pitch: 1
   Loop: 0
   Mute: 0

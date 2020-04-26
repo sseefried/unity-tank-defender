@@ -7,7 +7,7 @@ public class LevelController : MonoBehaviour
     [Header("Config")]
     [SerializeField] GameObject winLabel;
     [SerializeField] GameObject loseLabel;
-    [SerializeField] float timeToWait = 4f;
+    [SerializeField] float timeToWait = 5f;
     [SerializeField] int startingStars = 500;
 
     [Header("Debug only")]
@@ -134,6 +134,7 @@ public class LevelController : MonoBehaviour
     {
         winLabel.SetActive(true);
         GetComponent<AudioSource>().Play();
+        MusicPlayer.MusicStop();
         yield return new WaitForSeconds(timeToWait);
         FindObjectOfType<LevelLoader>().LoadNextScene();
     }

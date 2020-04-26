@@ -22,6 +22,14 @@ public class MusicPlayer : MonoBehaviour
         player.SetMusic(music_index);
     }
 
+    public static void MusicStop()
+    {
+        MusicPlayer player = FindObjectOfType<MusicPlayer>();
+        if (!player) { return; }
+        player.StopMusic();
+
+    }
+
 
     void Awake()
     {
