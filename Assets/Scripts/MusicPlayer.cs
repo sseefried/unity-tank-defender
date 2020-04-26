@@ -9,11 +9,25 @@ public class MusicPlayer : MonoBehaviour
     [SerializeField] public AudioClip startScreenMusic;
     [SerializeField] public AudioClip levelMusic;
     [SerializeField] public AudioClip winMusic;
+    [SerializeField] public AudioClip loseMusic;
+
+    public const int START_SCREEN_MUSIC_INDEX = 0, LEVEL_MUSIC_INDEX = 1, WIN_MUSIC_INDEX = 2, LOSE_MUSIC_INDEX = 3;
+  
+    AudioClip[] audioClips;
+
+    public static void MusicSet(int music_index)
+    {
+        MusicPlayer player = FindObjectOfType<MusicPlayer>();
+        if (!player) { return; }
+        player.SetMusic(music_index);
+    }
+
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         SetUpSingleton();
+        audioClips = new AudioClip[] { startScreenMusic, levelMusic, winMusic, loseMusic };
     }
 
     void OnEnable()
@@ -69,5 +83,11 @@ public class MusicPlayer : MonoBehaviour
         audioSource.clip = clip;
         audioSource.Play();
     }
+
+    public void SetMusic(int clipIndex)
+    {
+        SetMusic(audioClips[clipIndex]);
+    }
+
 
 }

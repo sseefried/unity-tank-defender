@@ -143,3 +143,4 @@ MonoBehaviour:
   startScreenMusic: {fileID: 8300000, guid: 9e40807311c4a488fbe08da1b95d2da5, type: 3}
   levelMusic: {fileID: 8300000, guid: d6bd7d3df46294d4b9c7f8bb28360687, type: 3}
   winMusic: {fileID: 8300000, guid: 90cc4fe256c66487189ef7366389e292, type: 3}
+  loseMusic: {fileID: 8300000, guid: 215d3b7e972304a1ba9bbfa22510df18, type: 3}

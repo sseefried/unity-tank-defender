@@ -32,11 +32,7 @@ public class LevelLoader : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("Start Screen");
-        MusicPlayer player = FindObjectOfType<MusicPlayer>();
-        if (player)
-        {
-            player.SetMusic(player.startScreenMusic);
-        }
+        MusicPlayer.MusicSet(MusicPlayer.START_SCREEN_MUSIC_INDEX);
     }
 
     public void LoadNextScene()

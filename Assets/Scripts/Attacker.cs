@@ -20,15 +20,20 @@ public class Attacker : MonoBehaviour
     bool inRange = false;
     LevelController levelController;
 
+    public void StopSound()
+    {
+        GetComponent<AudioSource>().Stop();
+    }
+
     private void Awake()
     {
         laneNumber = Mathf.FloorToInt(transform.position.y);
         levelController = FindObjectOfType<LevelController>();
-        levelController.AttackerSpawned(this);       
     }
 
     private void Start()
     {
+        levelController.AttackerSpawned(this);
         StartCoroutine(FireContinuously());
     }
 

@@ -140,6 +140,8 @@ public class LevelController : MonoBehaviour
 
     public void HandleLoseCondition()
     {
+        MusicPlayer.MusicSet(MusicPlayer.LOSE_MUSIC_INDEX);
+        StopAttackerSounds();
         loseLabel.SetActive(true);
         Time.timeScale = 0;
     }
@@ -160,4 +162,13 @@ public class LevelController : MonoBehaviour
             StartCoroutine(HandleWinCondition());
         }
     }
+
+    private void StopAttackerSounds()
+    {
+        foreach (Attacker attacker in FindObjectsOfType<Attacker>())
+        {
+            attacker.StopSound();
+        }
+    }
+
 }
