@@ -3,17 +3,20 @@
 [X] Make defender only fire when on game field area
 [X] Find out why cactus doesn't attack tanks
 [X] Add health meters
-[ ] Change slider to tank
-[ ] Get rid of "bummer sound" level complete music
-
-
-[ ] Tune the first level
+[X] Get rid of "bummer sound" level complete music
+[X] Tune the first level
 [X] Change the Splash screen and start screen
     - new fonts
 [X] Change music
-[ ] Add sound effects for placing defenders and not being able because too few stars
-[ ] Add explosion sound effects
+[X] Add sound effects for placing defenders 
 [X] Change fonts for money
-[ ] Change "Congratulations" screen
-[ ] Add sad music on "Position Overrun" screen
+[X] Change "Congratulations" screen
+[X] Add sad music on "Position Overrun" screen
+[X] Victory music
+[ ] Sound effect on hover over button
+[ ] Fix options screen
+[ ] Change slider to tank 
+[ ] Add sound effect when not able to place defender because too few stars
+[ ] Add explosion sound effects
+[ ] Add damage sound effect
 
