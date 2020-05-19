@@ -10,19 +10,22 @@ public class ButtonClickSound : MonoBehaviour, IPointerEnterHandler
 
     [SerializeField] AudioClip sound;
 
-    // TODO: Find out what is going on here. What feature of C# is this? 
-    private Button button {  get { return GetComponent<Button>(); } }
+    /*
+     * The declarations below are C#'s Auto-Implemented Properties
+     * (aka Auto Properties).
+     * https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties
+     */
+    private Button button { get { return GetComponent<Button>(); } }
     private AudioSource source {  get { return GetComponent<AudioSource>(); } }
 
     // Start is called before the first frame update
     void Start()
     {
+        // Programatically adding what is required. This is a technique
+        // I will use from now on.
         gameObject.AddComponent<AudioSource>();
         source.clip = sound;
         source.playOnAwake = false;
-
-
-            
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firingSound: {fileID: 8300000, guid: 5ea0e5ec3c1124b6d978d3256ace9e69, type: 3}
+  volume: 0.5
 --- !u!1 &1567492441
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +607,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   deathVFX: {fileID: 1906222994913036, guid: 740c2b3187d56c341b8cb78e8aa925c5, type: 3}
+  damageSound: {fileID: 8300000, guid: a45a9c2c7f4784c9b8cfc18d3701311b, type: 3}
+  deathSound: {fileID: 8300000, guid: 7261ebb9c73fb417b9d32b8c057e9e6b, type: 3}
 --- !u!82 &2790449394714341714
 AudioSource:
   m_ObjectHideFlags: 0

@@ -20,9 +20,12 @@ public class Attacker : MonoBehaviour
     bool inRange = false;
     LevelController levelController;
 
+    private AudioSource audioSource { get { return GetComponent<AudioSource>(); } }
+
+
     public void StopSound()
     {
-        GetComponent<AudioSource>().Stop();
+        audioSource.Stop();
     }
 
     private void Awake()
