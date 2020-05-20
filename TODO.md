@@ -20,5 +20,5 @@
 [X] Add explosion sound effects
 [X] Add damage sound effect
 
-[ ] And concrete obstacle 
+[ ] Add concrete obstacle 
 

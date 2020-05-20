@@ -1547,6 +1547,11 @@ PrefabInstance:
       propertyPath: placeSound
       value: 
       objectReference: {fileID: 8300000, guid: 82b88a9d6204e42b0befe492845cce10, type: 3}
+    - target: {fileID: 275990178821220931, guid: c05c2143ea31d43349552abe527f190b,
+        type: 3}
+      propertyPath: cantPlaceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0afccba9b99394c5b8d027fad1a65946, type: 3}
     - target: {fileID: 275990178821220941, guid: c05c2143ea31d43349552abe527f190b,
         type: 3}
       propertyPath: m_Name
