@@ -19,8 +19,12 @@ public class DefenderSpawner : MonoBehaviour
     private void Awake()
     {
         levelController = FindObjectOfType<LevelController>();
-        defenderParent = levelController.InstantiatedParent();
 
+    }
+
+    private void Start()
+    {
+        defenderParent = levelController.InstantiatedParent();
     }
 
     private void Update()
@@ -130,8 +134,7 @@ public class DefenderSpawner : MonoBehaviour
     private void SpawnDefender(Vector2 worldPos)
     {
         Defender newDefender = Instantiate(defender, worldPos, Quaternion.identity) as Defender;
-        Canvas canvas = FindObjectOfType<Canvas>();
-        newDefender.transform.parent = defenderParent.transform;
+        newDefender.transform.SetParent(defenderParent.transform);
         levelController.DefenderSpawned(Mathf.RoundToInt(worldPos.y), Mathf.RoundToInt(worldPos.x));
     }
 

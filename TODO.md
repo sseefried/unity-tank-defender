@@ -15,10 +15,13 @@
 [X] Victory music
 [X] Sound effect on hover over button
 [ ] Fix options screen
-[ ] Change slider to tank 
-[ ] Add sound effect when not able to place defender because too few stars
+[X] Add sound effect when not able to place defender because too few stars
 [X] Add explosion sound effects
 [X] Add damage sound effect
 
+
+[ ] Change slider to tank 
 [ ] Add concrete obstacle 
+
+
 
