@@ -9,9 +9,12 @@ public class DefenderButton : MonoBehaviour
     [SerializeField] Defender defenderPrefab;
     [SerializeField] AudioClip selectSound;
 
+    public static Color32 unselectedColor = new Color32(100,100,100,255);
+
     private void Start()
     {
         LabelButtonWithCost();
+        DimButton(this);
     }
 
     private void LabelButtonWithCost()
@@ -22,14 +25,25 @@ public class DefenderButton : MonoBehaviour
 
     public void OnMouseDown()
     {
-        
-        var buttons = FindObjectsOfType<DefenderButton>();
-        foreach (DefenderButton button in buttons)
+        foreach (DefenderButton button in FindObjectsOfType<DefenderButton>())
         {
-            button.GetComponentInChildren<SpriteRenderer>().color = new Color32(41,41,41,255);
+            DimButton(button);
         }
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        ChangeButtonColor(this, Color.white);
         FindObjectOfType<DefenderSpawner>().SetSelectedDefender(defenderPrefab);
         AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position);
+    }
+
+    private static void DimButton(DefenderButton button)
+    {
+        ChangeButtonColor(button, unselectedColor);
+
+    }
+
+    private static void ChangeButtonColor(DefenderButton button, Color32 color)
+    {
+        Transform t = button.transform;
+        t.Find("Image").GetComponent<SpriteRenderer>().color = color;
+        t.Find("Button Graphic").GetComponent<SpriteRenderer>().color = color;
     }
 }
