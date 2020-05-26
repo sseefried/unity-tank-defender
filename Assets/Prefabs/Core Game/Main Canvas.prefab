@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3465501916512148725}
-  - component: {fileID: 2141649307638442096}
   - component: {fileID: 765061812712808556}
   m_Layer: 5
   m_Name: Cash Title
@@ -26,25 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3794534467230923616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -641, y: -466, z: 0}
+  m_LocalPosition: {x: -779, y: -473, z: 0}
   m_LocalScale: {x: 100, y: 100, z: -10}
   m_Children: []
   m_Father: {fileID: 6103849509437892856}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2141649307638442096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3794534467230923616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b83f3b92f2d09499eb414be9908a0a70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stars: 2000
 --- !u!212 &765061812712808556
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -505,7 +491,7 @@ GameObject:
   - component: {fileID: 6103849510239778576}
   - component: {fileID: 6389927709382939821}
   m_Layer: 5
-  m_Name: Cash Text
+  m_Name: Star Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,7 +513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -506, y: -479}
+  m_AnchoredPosition: {x: -644, y: -485.99997}
   m_SizeDelta: {x: 189.2, y: 109.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6103849510239778577
